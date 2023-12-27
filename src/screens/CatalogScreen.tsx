@@ -35,7 +35,6 @@ const CatalogScreen = ({route, navigation}: Props) => {
     getAllArtWorks();
   }, [currentPage]);
 
-  console.log('render');
   return (
     <View>
       <Text>CatalogScreen</Text>
