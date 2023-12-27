@@ -4,5 +4,5 @@ export interface getAllArtWorksParams {
 }
 
 export interface getArtWorkId {
-  id: string;
+  id: number;
 }
