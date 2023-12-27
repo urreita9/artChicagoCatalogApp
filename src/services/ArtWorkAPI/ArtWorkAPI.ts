@@ -9,12 +9,12 @@ const api = axios.create({
 
 const ArtWorkAPI = {
   getAllArtWorks: async function (params: getAllArtWorksParams) {
-    const res = await api.get<ArtWorksResponse>(baseURL_artworks, {params});
-    return res.data;
+    const {data} = await api.get<ArtWorksResponse>(baseURL_artworks, {params});
+    return data;
   },
   getArtWorkById: async function (artWorkId: getArtWorkId) {
-    const res = await api.get(baseURL_artworks + `/${artWorkId.id}`);
-    return res.data;
+    const {data} = await api.get(baseURL_artworks + `/${artWorkId.id}`);
+    return data;
   },
 };
 
