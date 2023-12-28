@@ -1,6 +1,5 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-import Animated from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {moderateScale} from 'react-native-size-matters';
 import styles from './ArtWorkCard.styles';
