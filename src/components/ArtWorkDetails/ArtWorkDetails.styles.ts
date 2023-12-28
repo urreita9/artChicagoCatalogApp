@@ -9,15 +9,16 @@ export default ScaledSheet.create({
     flex: 1,
     padding: '10@s',
     alignItems: 'center',
-    justifyContent: 'space-between',
   },
   content: {
+    flex: 1,
     width: '300@s',
   },
-  footer: {},
+  footer: {
+    width: '300@s',
+  },
   originDate: {
     fontSize: '14@s',
-    alignSelf: 'flex-end',
   },
   title: {
     fontWeight: 'bold',
