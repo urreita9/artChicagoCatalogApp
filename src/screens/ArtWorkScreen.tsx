@@ -9,7 +9,7 @@ type Props = NativeStackScreenProps<RootStackParamList, typeof ARTWORK_SCREEN>;
 
 const ArtWorkScreen = ({route, navigation}: Props) => {
   return (
-    <ScrollView style={{flex: 1}}>
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <ArtWorkDetails />
     </ScrollView>
   );
