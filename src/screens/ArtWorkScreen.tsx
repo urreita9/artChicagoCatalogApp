@@ -1,16 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/MainNavigator';
 import {ARTWORK_SCREEN} from '../navigation/constants';
+import ArtWorkDetails from '../components/ArtWorkDetails/ArtWorkDetails';
 
 type Props = NativeStackScreenProps<RootStackParamList, typeof ARTWORK_SCREEN>;
 
 const ArtWorkScreen = ({route, navigation}: Props) => {
   return (
-    <View>
-      <Text>ArtWork</Text>
-    </View>
+    <ScrollView style={{flex: 1}}>
+      <ArtWorkDetails />
+    </ScrollView>
   );
 };
 
