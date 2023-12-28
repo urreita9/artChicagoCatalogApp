@@ -1,35 +1,40 @@
-import React, {PropsWithChildren, ReactNode} from 'react';
-import {View} from 'react-native';
-import CardTitle from './ArtWorkCardTitle';
-import CardContent from './ArtWorkCardContent';
-import CardImage from './ArtWorkCardImage';
-import ArtWorkCardContext from './ArtWorkCardContext';
-import {ArtWorksData} from '../../services/ArtWorkAPI/interfaces/AllArtWorks';
+import React from 'react';
+import {Image, Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {moderateScale} from 'react-native-size-matters';
 import styles from './ArtWorkCard.styles';
 
 interface Props {
-  artWork: ArtWorksData;
-  image?: ReactNode;
-  title?: ReactNode;
-  content?: ReactNode;
+  image: string;
+  title: string;
+  subtitle: string;
 }
 
-const Card = ({artWork, image, title, content}: PropsWithChildren<Props>) => {
+const Card = ({image, title, subtitle}: Props) => {
   return (
-    <ArtWorkCardContext.Provider value={{artWork}}>
-      <View style={styles.container}>
-        {image}
-        <View style={styles.content}>
-          {title}
-          {content}
+    <View style={styles.container}>
+      {image ? (
+        <Image
+          width={moderateScale(60)}
+          height={moderateScale(60)}
+          source={{uri: image}}
+          style={styles.image}
+        />
+      ) : (
+        <View style={[styles.fallbackContainer, styles.image]}>
+          <Icon name="broken-image" size={moderateScale(50)} />
+        </View>
+      )}
+      <View style={styles.content}>
+        <View style={styles.text}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+        <View style={styles.text}>
+          <Text style={styles.subtitle}>{subtitle}</Text>
         </View>
       </View>
-    </ArtWorkCardContext.Provider>
+    </View>
   );
 };
-
-Card.Title = CardTitle;
-Card.Content = CardContent;
-Card.Image = CardImage;
 
 export default Card;

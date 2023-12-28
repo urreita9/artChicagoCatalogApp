@@ -1,15 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  ActivityIndicator,
-  Pressable,
-} from 'react-native';
+import {View, Text, FlatList, ActivityIndicator, Pressable} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/MainNavigator';
-import {CATALOG_SCREEN} from '../navigation/constants';
+import {ARTWORK_SCREEN, CATALOG_SCREEN} from '../navigation/constants';
 import ArtWorkAPI from '../services/ArtWorkAPI/ArtWorkAPI';
 import {ArtWorksData} from '../services/ArtWorkAPI/interfaces/AllArtWorks';
 import ArtWorkCard from '../components/ArtWorkCard/ArtWorkCard';
@@ -48,12 +41,15 @@ const CatalogScreen = ({route, navigation}: Props) => {
     getAllArtWorks();
   }, [currentPage]);
 
-  const renderItem = ({item, index}: RenderItem) => (
-    <ArtWorkCard
-      image={<ArtWorkCard.Image />}
-      title={<ArtWorkCard.Title />}
-      artWork={item}
-    />
+  const renderItem = ({item}: RenderItem) => (
+    <Pressable
+      onPress={() => navigation.navigate(ARTWORK_SCREEN, {artWorkId: item.id})}>
+      <ArtWorkCard
+        title={item.title}
+        subtitle={item.artist_title}
+        image={item.thumbnail?.lqip || ''}
+      />
+    </Pressable>
   );
 
   return (
