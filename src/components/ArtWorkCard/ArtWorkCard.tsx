@@ -6,23 +6,25 @@ import styles from './ArtWorkCard.styles';
 
 interface Props {
   image: string;
+  altImage: string;
   title: string;
   subtitle: string;
 }
 
-const Card = ({image, title, subtitle}: Props) => {
+const Card = ({image, altImage, title, subtitle}: Props) => {
   return (
     <View style={styles.container}>
       {image ? (
         <Image
-          width={moderateScale(60)}
-          height={moderateScale(60)}
+          width={moderateScale(50)}
+          height={moderateScale(50)}
           source={{uri: image}}
           style={styles.image}
+          alt={altImage}
         />
       ) : (
         <View style={[styles.fallbackContainer, styles.image]}>
-          <Icon name="broken-image" size={moderateScale(50)} />
+          <Icon name="broken-image" size={moderateScale(40)} />
         </View>
       )}
       <View style={styles.content}>

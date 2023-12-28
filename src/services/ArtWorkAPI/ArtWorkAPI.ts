@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {baseURL, baseURL_artworks} from './api_urls';
-import {getAllArtWorksParams, getArtWorkId} from './types';
+import {GetAllArtWorksParams, GetArtWorkId} from './types';
 import {ArtWorksResponse} from './interfaces/AllArtWorks';
 
 const api = axios.create({
@@ -8,11 +8,11 @@ const api = axios.create({
 });
 
 const ArtWorkAPI = {
-  getAllArtWorks: async function (params: getAllArtWorksParams) {
+  getAllArtWorks: async function (params: GetAllArtWorksParams) {
     const {data} = await api.get<ArtWorksResponse>(baseURL_artworks, {params});
     return data;
   },
-  getArtWorkById: async function (artWorkId: getArtWorkId) {
+  getArtWorkById: async function (artWorkId: GetArtWorkId) {
     const {data} = await api.get(baseURL_artworks + `/${artWorkId.id}`);
     return data;
   },

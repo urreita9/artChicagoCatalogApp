@@ -9,7 +9,11 @@ const BottomTabNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={MainNavigator} />
+        <Tab.Screen
+          name="Home"
+          component={MainNavigator}
+          options={{headerShown: false}}
+        />
         <Tab.Screen name="Favorites" component={MainNavigator} />
       </Tab.Navigator>
     </NavigationContainer>

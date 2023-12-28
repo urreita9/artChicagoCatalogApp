@@ -19,12 +19,12 @@ export default ScaledSheet.create({
     width: '60@ms',
   },
   image: {
-    borderRadius: '30@ms',
+    borderRadius: '25@ms',
   },
   text: {
     justifyContent: 'center',
     maxWidth: '75%',
-    paddingLeft: '5@s',
+    paddingLeft: '15@s',
   },
   title: {
     color: '#000000',

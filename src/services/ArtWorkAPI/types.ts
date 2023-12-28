@@ -1,8 +1,8 @@
-export interface getAllArtWorksParams {
+export interface GetAllArtWorksParams {
   page: number;
   limit: number;
 }
 
-export interface getArtWorkId {
+export interface GetArtWorkId {
   id: number;
 }

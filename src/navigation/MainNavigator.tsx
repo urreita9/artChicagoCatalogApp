@@ -8,7 +8,7 @@ import ArtWork from '../screens/ArtWorkScreen';
 
 export type RootStackParamList = {
   [CATALOG_SCREEN]: undefined;
-  [ARTWORK_SCREEN]: {artWorkId: number};
+  [ARTWORK_SCREEN]: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
