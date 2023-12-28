@@ -6,7 +6,7 @@ import {ARTWORK_SCREEN} from '../navigation/constants';
 
 type Props = NativeStackScreenProps<RootStackParamList, typeof ARTWORK_SCREEN>;
 
-const ArtWork = ({route, navigation}: Props) => {
+const ArtWorkScreen = ({route, navigation}: Props) => {
   return (
     <View>
       <Text>ArtWork</Text>
@@ -14,4 +14,4 @@ const ArtWork = ({route, navigation}: Props) => {
   );
 };
 
-export default ArtWork;
+export default ArtWorkScreen;

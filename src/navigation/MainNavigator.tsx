@@ -4,11 +4,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {ARTWORK_SCREEN, CATALOG_SCREEN} from './constants';
 import CatalogScreen from '../screens/CatalogScreen';
-import ArtWork from '../screens/ArtWork';
+import ArtWork from '../screens/ArtWorkScreen';
 
 export type RootStackParamList = {
   [CATALOG_SCREEN]: undefined;
-  [ARTWORK_SCREEN]: undefined;
+  [ARTWORK_SCREEN]: {artWorkId: number};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

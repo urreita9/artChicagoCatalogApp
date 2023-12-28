@@ -1,12 +1,18 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {View, Text, FlatList, Image, ActivityIndicator} from 'react-native';
+import {View, Text, FlatList, ActivityIndicator, Pressable} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/MainNavigator';
-import {CATALOG_SCREEN} from '../navigation/constants';
+import {ARTWORK_SCREEN, CATALOG_SCREEN} from '../navigation/constants';
 import ArtWorkAPI from '../services/ArtWorkAPI/ArtWorkAPI';
 import {ArtWorksData} from '../services/ArtWorkAPI/interfaces/AllArtWorks';
+import ArtWorkCard from '../components/ArtWorkCard/ArtWorkCard';
 
 type Props = NativeStackScreenProps<RootStackParamList, typeof CATALOG_SCREEN>;
+
+interface RenderItem {
+  item: ArtWorksData;
+  index: number;
+}
 
 const CatalogScreen = ({route, navigation}: Props) => {
   const [loading, setLoading] = useState(true);
@@ -35,6 +41,17 @@ const CatalogScreen = ({route, navigation}: Props) => {
     getAllArtWorks();
   }, [currentPage]);
 
+  const renderItem = ({item}: RenderItem) => (
+    <Pressable
+      onPress={() => navigation.navigate(ARTWORK_SCREEN, {artWorkId: item.id})}>
+      <ArtWorkCard
+        title={item.title}
+        subtitle={item.artist_title}
+        image={item.thumbnail?.lqip || ''}
+      />
+    </Pressable>
+  );
+
   return (
     <View>
       <Text>CatalogScreen</Text>
@@ -43,16 +60,7 @@ const CatalogScreen = ({route, navigation}: Props) => {
       ) : (
         <FlatList
           data={data}
-          renderItem={({item, index}) => (
-            <View style={{height: 100}}>
-              <Image
-                source={{uri: item.thumbnail?.lqip}}
-                width={30}
-                height={30}
-              />
-              <Text>{item.title}</Text>
-            </View>
-          )}
+          renderItem={renderItem}
           keyExtractor={item => item.id.toString()}
           onEndReachedThreshold={0.2}
           onEndReached={() => setCurrentPage(prevPage => prevPage + 1)}
