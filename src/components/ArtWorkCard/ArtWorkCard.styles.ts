@@ -1,8 +1,9 @@
 import {ScaledSheet} from 'react-native-size-matters';
+import Colors from '../../utils/colors';
 
 export default ScaledSheet.create({
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 10,
     flexDirection: 'row',
     margin: 5,
@@ -27,12 +28,12 @@ export default ScaledSheet.create({
     paddingLeft: '15@s',
   },
   title: {
-    color: '#000000',
+    color: Colors.black,
     fontSize: '14@ms0.3',
     marginBottom: 5,
   },
   subtitle: {
-    color: '#455a64',
+    color: Colors.grey,
     fontSize: '12@ms0.3',
   },
 });

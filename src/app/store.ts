@@ -1,6 +1,7 @@
 import {create} from 'zustand';
 
-interface ArtWork {
+export interface ArtWork {
+  id: number | null;
   imageUrl: string;
   altImage: string;
   thumbnail: string;
@@ -19,6 +20,7 @@ interface ArtWorkState {
 
 export const useStore = create<ArtWorkState>(set => ({
   artWorkDetails: {
+    id: null,
     imageUrl: '',
     altImage: '',
     thumbnail: '',
