@@ -1,4 +1,6 @@
 import {create} from 'zustand';
+import {persist, createJSONStorage} from 'zustand/middleware';
+import {ARTWORK_STORAGE_ID, zustandStorage} from './mmkv';
 
 export type artWorkId = number | null;
 
@@ -43,20 +45,28 @@ const initialArtWork = {
   dateDisplay: '',
 };
 
-export const useStore = create<ArtWorkState>(set => ({
-  artWorkDetails: initialArtWork,
-  favoriteArtWorkDetails: initialArtWork,
-  favoriteArtWorks: [],
-  setArtWorkDetails: ({artWork}) => set(() => ({artWorkDetails: artWork})),
-  addToFavorites: ({artWorkId}) =>
-    set(state => {
-      if (state.favoriteArtWorks.includes(artWorkId)) {
-        return {
-          favoriteArtWorks: state.favoriteArtWorks.filter(
-            item => item !== artWorkId,
-          ),
-        };
-      }
-      return {favoriteArtWorks: [...state.favoriteArtWorks, artWorkId]};
+export const useStore = create<ArtWorkState>()(
+  persist(
+    set => ({
+      artWorkDetails: initialArtWork,
+      favoriteArtWorkDetails: initialArtWork,
+      favoriteArtWorks: [],
+      setArtWorkDetails: ({artWork}) => set(() => ({artWorkDetails: artWork})),
+      addToFavorites: ({artWorkId}) =>
+        set(state => {
+          if (state.favoriteArtWorks.includes(artWorkId)) {
+            return {
+              favoriteArtWorks: state.favoriteArtWorks.filter(
+                item => item !== artWorkId,
+              ),
+            };
+          }
+          return {favoriteArtWorks: [...state.favoriteArtWorks, artWorkId]};
+        }),
     }),
-}));
+    {
+      name: ARTWORK_STORAGE_ID,
+      storage: createJSONStorage(() => zustandStorage),
+    },
+  ),
+);
