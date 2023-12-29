@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 
-type artWorkId = number | null;
+export type artWorkId = number | null;
 
 export interface ArtWork {
   id: artWorkId;
@@ -17,7 +17,6 @@ export interface ArtWork {
 
 interface SetArtWorkDetails {
   artWork: ArtWork;
-  favoriteArtWorkDetails: boolean;
 }
 
 interface AddToFavorites {
@@ -26,7 +25,6 @@ interface AddToFavorites {
 
 interface ArtWorkState {
   artWorkDetails: ArtWork;
-  favoriteArtWorkDetails: ArtWork;
   favoriteArtWorks: artWorkId[];
   setArtWorkDetails: (args: SetArtWorkDetails) => void;
   addToFavorites: (id: AddToFavorites) => void;
@@ -49,13 +47,7 @@ export const useStore = create<ArtWorkState>(set => ({
   artWorkDetails: initialArtWork,
   favoriteArtWorkDetails: initialArtWork,
   favoriteArtWorks: [],
-  setArtWorkDetails: ({artWork, favoriteArtWorkDetails}) =>
-    set(() => {
-      if (favoriteArtWorkDetails) {
-        return {favoriteArtWorkDetails: artWork};
-      }
-      return {artWorkDetails: artWork};
-    }),
+  setArtWorkDetails: ({artWork}) => set(() => ({artWorkDetails: artWork})),
   addToFavorites: ({artWorkId}) =>
     set(state => {
       if (state.favoriteArtWorks.includes(artWorkId)) {

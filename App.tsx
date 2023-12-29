@@ -1,8 +1,8 @@
 import React from 'react';
-import BottomTabNavigator from './src/navigation/BottomTabNavigator';
+import MainNavigator from './src/navigation/MainStackNavigator';
 
 const App = (): React.JSX.Element => {
-  return <BottomTabNavigator />;
+  return <MainNavigator />;
 };
 
 export default App;
