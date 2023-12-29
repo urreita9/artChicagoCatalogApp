@@ -10,15 +10,17 @@ import {useStore} from '../app/store';
 type Props = NativeStackScreenProps<RootStackParamList, typeof ARTWORK_SCREEN>;
 
 const ArtWorkScreen = ({route, navigation}: Props) => {
-  const artWork = useStore(state => state.artWorkDetails);
+  const {artWorkDetails, addToFavorites, favoriteArtWorks} = useStore();
+
   return (
     <>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <ArtWorkDetails artWork={artWork} />
+        <ArtWorkDetails artWork={artWorkDetails} />
       </ScrollView>
       <FloattingButton
-        onPressFav={() => console.log('press fav')}
+        onPressFav={() => addToFavorites({artWorkId: artWorkDetails.id})}
         onPressShare={() => console.log('press share')}
+        itemIsFav={favoriteArtWorks.includes(artWorkDetails.id)}
       />
     </>
   );

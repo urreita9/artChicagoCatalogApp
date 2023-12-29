@@ -18,9 +18,10 @@ import Colors from '../../utils/colors';
 interface Props {
   onPressFav: () => void;
   onPressShare: () => void;
+  itemIsFav: boolean;
 }
 
-const FloattingButton = ({onPressFav, onPressShare}: Props) => {
+const FloattingButton = ({onPressFav, onPressShare, itemIsFav}: Props) => {
   const firstValue = useSharedValue(30);
   const secondValue = useSharedValue(30);
   const isOpen = useSharedValue(false);
@@ -82,7 +83,11 @@ const FloattingButton = ({onPressFav, onPressShare}: Props) => {
       <Pressable onPress={onPressFav}>
         <Animated.View style={[styles.contentContainer, firstIcon]}>
           <View style={styles.iconContainer}>
-            <Icon size={26} name="favorite-outline" color={Colors.white} />
+            <Icon
+              size={26}
+              name={itemIsFav ? 'favorite' : 'favorite-outline'}
+              color={Colors.white}
+            />
           </View>
         </Animated.View>
       </Pressable>

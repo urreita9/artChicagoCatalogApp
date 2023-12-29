@@ -51,18 +51,21 @@ const CatalogScreen = ({route, navigation}: Props) => {
     <Pressable
       onPress={() => {
         setArtWorkDetails({
-          id: item.id,
-          artist: item.artist_title || '',
-          description: item.description || '',
-          dimensions: item.dimensions || '',
-          imageUrl:
-            artWorks?.config.iiif_url +
-              `/${item.image_id}/full/843,/0/default.jpg` || '',
-          altImage: item.thumbnail?.alt_text || '',
-          thumbnail: item.thumbnail?.lqip || '',
-          origin: item.place_of_origin || '',
-          title: item.title || '',
-          dateDisplay: item.date_display,
+          artWork: {
+            id: item.id,
+            artist: item.artist_title || '',
+            description: item.description || '',
+            dimensions: item.dimensions || '',
+            imageUrl:
+              artWorks?.config.iiif_url +
+                `/${item.image_id}/full/843,/0/default.jpg` || '',
+            altImage: item.thumbnail?.alt_text || '',
+            thumbnail: item.thumbnail?.lqip || '',
+            origin: item.place_of_origin || '',
+            title: item.title || '',
+            dateDisplay: item.date_display,
+          },
+          favoriteArtWorkDetails: false,
         });
         navigation.navigate(ARTWORK_SCREEN);
       }}>
