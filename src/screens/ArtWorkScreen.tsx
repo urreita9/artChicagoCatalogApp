@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../navigation/MainNavigator';
+import {RootStackParamList} from '../navigation/MainStackNavigator';
 import {ARTWORK_SCREEN} from '../navigation/constants';
 import ArtWorkDetails from '../components/ArtWorkDetails/ArtWorkDetails';
 import FloattingButton from '../components/FloatingButton/FloattingButton';

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {baseURL, baseURL_artworks} from './api_urls';
-import {GetAllArtWorksParams, GetArtWorkId} from './types';
+import {GetArtWorksParams, GetArtWorkId} from './types';
 import {ArtWorksResponse} from './interfaces/AllArtWorks';
 
 const api = axios.create({
@@ -8,7 +8,7 @@ const api = axios.create({
 });
 
 const ArtWorkAPI = {
-  getAllArtWorks: async function (params: GetAllArtWorksParams) {
+  getAllArtWorks: async function (params: GetArtWorksParams) {
     const {data} = await api.get<ArtWorksResponse>(baseURL_artworks, {params});
     return data;
   },
