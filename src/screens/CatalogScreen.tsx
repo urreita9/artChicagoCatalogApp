@@ -51,6 +51,7 @@ const CatalogScreen = ({route, navigation}: Props) => {
     <Pressable
       onPress={() => {
         setArtWorkDetails({
+          id: item.id,
           artist: item.artist_title || '',
           description: item.description || '',
           dimensions: item.dimensions || '',

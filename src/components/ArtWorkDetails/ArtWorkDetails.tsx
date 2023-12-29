@@ -1,13 +1,17 @@
 import React from 'react';
 import {View, Text, useWindowDimensions} from 'react-native';
 import RenderHtml from 'react-native-render-html';
-import {useStore} from '../../app/store';
 import styles from './ArtWorkDetails.styles';
 import ProgresiveImage from '../ProgresiveImage/ProgresiveImage';
+import {ArtWork} from '../../app/store';
 
-const ArtWorkDetails = () => {
+interface Props {
+  artWork: ArtWork;
+}
+
+const ArtWorkDetails = ({artWork}: Props) => {
   const {width} = useWindowDimensions();
-  const artWork = useStore(state => state.artWorkDetails);
+
   return (
     <View style={styles.container}>
       <View>
