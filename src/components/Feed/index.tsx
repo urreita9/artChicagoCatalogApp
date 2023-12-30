@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Pressable, FlatList, ActivityIndicator} from 'react-native';
 import ArtWorkCard from '../ArtWorkCard';
-import {ArtWorksData, ArtWorksResponse} from '../../services/ArtWorkAPI/types';
+import {ArtWorksData} from '../../services/ArtWorkAPI/types';
 import {
   ARTWORK_SCREEN,
   FAVORITES_SCREEN,
@@ -12,6 +12,9 @@ import {MainStackNavigation} from '../../navigation/MainStackNavigator';
 import {useStore} from '../../app/store';
 import useArtWorks from '../../hooks/useArtWorks';
 import Loader from '../Loader';
+import IconMessage from '../IconMessage';
+import {scale} from 'react-native-size-matters';
+import Colors from '../../utils/colors';
 
 export interface RenderItem {
   item: ArtWorksData;
@@ -26,7 +29,7 @@ const Feed = ({screen}: Props) => {
   const {navigate} = useNavigation<MainStackNavigation>();
   const {setArtWorkDetails} = useStore();
 
-  const {artWorks, addNextPage, moreDataLoading, loading} = useArtWorks({
+  const {artWorks, addNextPage, moreDataLoading, loading, error} = useArtWorks({
     screen,
   });
 
@@ -66,6 +69,12 @@ const Feed = ({screen}: Props) => {
   return (
     <>
       <Loader loading={loading} />
+      {error && (
+        <IconMessage
+          icon={{name: 'error-outline', size: scale(60), color: Colors.primary}}
+          message="There has been an error! Please try again later."
+        />
+      )}
       <FlatList
         data={artWorks?.data}
         renderItem={renderItem}
