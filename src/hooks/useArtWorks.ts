@@ -12,6 +12,7 @@ interface Props {
 
 const useArtWorks = ({screen}: Props) => {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<boolean>(false);
   const [moreDataLoading, setMoreDataLoading] = useState(false);
   const [artWorks, setArtWorks] = useState<ArtWorksResponse>();
   const [currentPage, setCurrentPage] = useState(1);
@@ -76,8 +77,8 @@ const useArtWorks = ({screen}: Props) => {
           setHomeArtWorks(res);
           break;
       }
-    } catch (error) {
-      console.log('error', error);
+    } catch (err) {
+      setError(true);
     } finally {
       currentPage === 1 ? setLoading(false) : setMoreDataLoading(false);
     }
@@ -115,6 +116,7 @@ const useArtWorks = ({screen}: Props) => {
     artWorks,
     loadMoreArtWorks,
     addNextPage,
+    error,
   };
 };
 
