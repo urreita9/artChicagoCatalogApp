@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {createRef} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {ARTWORK_SCREEN, HOME_BOTTOM_TAB} from './constants';
 import ArtWork from '../screens/ArtWorkScreen';
-import {NavigationContainer, NavigationProp} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  NavigationContainerRef,
+  NavigationProp,
+} from '@react-navigation/native';
 import BottomTabNavigator from './BottomTabNavigator';
 
 export type RootStackParamList = {
@@ -14,9 +18,12 @@ export type MainStackNavigation = NavigationProp<RootStackParamList>;
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+export const navigationRef =
+  createRef<NavigationContainerRef<RootStackParamList>>();
+
 const MainNavigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
           name={HOME_BOTTOM_TAB}

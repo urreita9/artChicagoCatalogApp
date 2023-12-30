@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {baseURL, baseURL_artworks} from './api_urls';
-import {GetArtWorksParams, GetArtWorkId} from './types';
-import {ArtWorksResponse} from './interfaces/AllArtWorks';
+import {GetArtWorksParams, GetArtWorkId, ArtWorksResponse} from './types';
 
 const api = axios.create({
   baseURL,

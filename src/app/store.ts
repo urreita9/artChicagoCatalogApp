@@ -21,15 +21,17 @@ interface SetArtWorkDetails {
   artWork: ArtWork;
 }
 
-interface AddToFavorites {
+interface ArtWorkIdArg {
   artWorkId: artWorkId;
 }
 
 interface ArtWorkState {
   artWorkDetails: ArtWork;
   favoriteArtWorks: artWorkId[];
+  randomArtWorkDetails: ArtWork;
   setArtWorkDetails: (args: SetArtWorkDetails) => void;
-  addToFavorites: (id: AddToFavorites) => void;
+  addToFavorites: (id: ArtWorkIdArg) => void;
+  setRandomArtWorkDetails: (args: SetArtWorkDetails) => void;
   clearFavorites: () => void;
 }
 
@@ -51,8 +53,11 @@ export const useStore = create<ArtWorkState>()(
     set => ({
       artWorkDetails: initialArtWork,
       favoriteArtWorkDetails: initialArtWork,
+      randomArtWorkDetails: initialArtWork,
       favoriteArtWorks: [],
       setArtWorkDetails: ({artWork}) => set(() => ({artWorkDetails: artWork})),
+      setRandomArtWorkDetails: ({artWork}) =>
+        set(() => ({randomArtWorkDetails: artWork})),
       addToFavorites: ({artWorkId}) =>
         set(state => {
           if (state.favoriteArtWorks.includes(artWorkId)) {
