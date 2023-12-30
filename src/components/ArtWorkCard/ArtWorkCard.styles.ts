@@ -27,6 +27,10 @@ export default ScaledSheet.create({
     height: '60@ms',
     width: '60@ms',
   },
+  iconContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   image: {
     borderRadius: '25@ms',
   },
