@@ -6,3 +6,4 @@ export const FAVORITES_TAB = 'Favorites';
 export const HOME_SCREEN = 'Home';
 export const ARTWORK_SCREEN = 'Artwork';
 export const FAVORITES_SCREEN = 'Favorites';
+export const HOME_BOTTOM_TAB = 'HomeBottomTab';

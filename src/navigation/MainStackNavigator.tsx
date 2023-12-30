@@ -1,15 +1,13 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {ARTWORK_SCREEN, FAVORITES_SCREEN, HOME_SCREEN} from './constants';
+import {ARTWORK_SCREEN, HOME_BOTTOM_TAB} from './constants';
 import ArtWork from '../screens/ArtWorkScreen';
 import {NavigationContainer, NavigationProp} from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen';
-import FavoritesScreen from '../screens/FavoritesScreen';
+import BottomTabNavigator from './BottomTabNavigator';
 
 export type RootStackParamList = {
-  [HOME_SCREEN]: undefined;
-  [FAVORITES_SCREEN]: undefined;
+  [HOME_BOTTOM_TAB]: undefined;
   [ARTWORK_SCREEN]: undefined;
 };
 export type MainStackNavigation = NavigationProp<RootStackParamList>;
@@ -21,11 +19,10 @@ const MainNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name={HOME_SCREEN}
-          component={HomeScreen}
+          name={HOME_BOTTOM_TAB}
+          component={BottomTabNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen name={FAVORITES_SCREEN} component={FavoritesScreen} />
         <Stack.Screen name={ARTWORK_SCREEN} component={ArtWork} />
       </Stack.Navigator>
     </NavigationContainer>
