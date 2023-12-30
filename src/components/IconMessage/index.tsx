@@ -1,16 +1,13 @@
 import React, {useEffect} from 'react';
-import {View, Text, Easing} from 'react-native';
+import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
-  withSpring,
   withTiming,
 } from 'react-native-reanimated';
 import styles from './styles';
-import {scale} from 'react-native-size-matters';
-import Colors from '../../utils/colors';
 
 interface IconProps {
   name: string;
