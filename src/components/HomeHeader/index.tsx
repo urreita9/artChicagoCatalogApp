@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import Logo from '../../assets/logo.svg';
-import IconButton from '../IconButton/IconButton';
-import styles from './HomeHeader.styles';
+import IconButton from '../IconButton';
+import styles from './styles';
 import Colors from '../../utils/colors';
 
 interface Props {

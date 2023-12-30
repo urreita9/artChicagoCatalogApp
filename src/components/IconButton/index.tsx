@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Pressable, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styles from './IconButton.styles';
+import styles from './styles';
 import Colors from '../../utils/colors';
 import {scale} from 'react-native-size-matters';
 

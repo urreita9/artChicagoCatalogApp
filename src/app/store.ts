@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 import {persist, createJSONStorage} from 'zustand/middleware';
-import {ARTWORK_STORAGE_ID, zustandStorage} from './mmkv';
+import {ARTWORK_STORAGE_ID, zustandStorage} from './mmkvStorage';
 
 export type artWorkId = number | null;
 

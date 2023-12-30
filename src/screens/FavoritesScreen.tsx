@@ -1,19 +1,11 @@
 import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootBottomParamList} from '../navigation/BottomTabNavigator';
-import {FAVORITES_SCREEN} from '../navigation/constants';
-import Catalog from '../components/Catalog/Catalog';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import Catalog from '../components/Catalog';
 import {useStore} from '../app/store';
-import FloattingButton from '../components/FloatingButton/FloattingButton';
+import {FAVORITES_SCREEN} from '../navigation/constants';
 
-type Props = NativeStackScreenProps<
-  RootBottomParamList,
-  typeof FAVORITES_SCREEN
->;
-
-const FavoritesScreen = ({route, navigation}: Props) => {
-  const {favoriteArtWorks, clearFavorites} = useStore();
+const FavoritesScreen = () => {
+  const {favoriteArtWorks} = useStore();
 
   return (
     <SafeAreaView style={{flex: 1}}>

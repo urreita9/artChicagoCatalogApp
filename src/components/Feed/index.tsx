@@ -1,10 +1,7 @@
 import React from 'react';
 import {View, Pressable, FlatList, ActivityIndicator} from 'react-native';
-import ArtWorkCard from '../ArtWorkCard/ArtWorkCard';
-import {
-  ArtWorksData,
-  ArtWorksResponse,
-} from '../../services/ArtWorkAPI/interfaces/AllArtWorks';
+import ArtWorkCard from '../ArtWorkCard';
+import {ArtWorksData, ArtWorksResponse} from '../../services/ArtWorkAPI/types';
 
 export interface RenderItem {
   item: ArtWorksData;
