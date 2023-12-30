@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+
 import {useStore} from '../app/store';
 import {FAVORITES_SCREEN} from '../navigation/constants';
 import Feed from '../components/Feed';
+import {scale} from 'react-native-size-matters';
+import Colors from '../utils/colors';
+import IconMessage from '../components/IconMessage';
 
 const FavoritesScreen = () => {
   const {favoriteArtWorks} = useStore();
@@ -12,9 +16,11 @@ const FavoritesScreen = () => {
       {favoriteArtWorks.length ? (
         <Feed screen={FAVORITES_SCREEN} />
       ) : (
-        <View>
-          <Text>Favorites is empty!</Text>
-        </View>
+        <IconMessage
+          icon={{name: 'heart-broken', size: scale(60), color: Colors.primary}}
+          message="No favorites :("
+          animate
+        />
       )}
     </SafeAreaView>
   );
