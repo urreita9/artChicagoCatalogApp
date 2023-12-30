@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {moderateScale, scale} from 'react-native-size-matters';
-import styles from './ArtWorkCard.styles';
+import styles from './styles';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,

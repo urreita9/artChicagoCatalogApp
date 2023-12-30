@@ -1,15 +1,10 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../navigation/MainStackNavigator';
-import {ARTWORK_SCREEN} from '../navigation/constants';
-import ArtWorkDetails from '../components/ArtWorkDetails/ArtWorkDetails';
-import FloattingButton from '../components/FloatingButton/FloattingButton';
+import ArtWorkDetails from '../components/ArtWorkDetails';
 import {useStore} from '../app/store';
+import FloattingButton from '../components/FloatingButton';
 
-type Props = NativeStackScreenProps<RootStackParamList, typeof ARTWORK_SCREEN>;
-
-const ArtWorkScreen = ({route, navigation}: Props) => {
+const ArtWorkScreen = () => {
   const {artWorkDetails, addToFavorites, favoriteArtWorks} = useStore();
 
   return (

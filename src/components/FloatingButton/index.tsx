@@ -12,7 +12,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styles from './FloattingButton.styles';
+import styles from './styles';
 import Colors from '../../utils/colors';
 
 interface IconBtn {

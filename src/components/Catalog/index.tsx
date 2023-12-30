@@ -6,7 +6,7 @@ import {
   HOME_SCREEN,
 } from '../../navigation/constants';
 import {useStore} from '../../app/store';
-import Feed, {RenderItem} from '../Feed/Feed';
+import Feed, {RenderItem} from '../Feed';
 import useArtWorks from '../../hooks/useArtWorks';
 import {useNavigation} from '@react-navigation/native';
 import {MainStackNavigation} from '../../navigation/MainStackNavigator';

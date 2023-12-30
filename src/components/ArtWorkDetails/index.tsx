@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, useWindowDimensions} from 'react-native';
 import RenderHtml from 'react-native-render-html';
-import styles from './ArtWorkDetails.styles';
-import ProgresiveImage from '../ProgresiveImage/ProgresiveImage';
+import styles from './styles';
+import ProgresiveImage from '../ProgresiveImage';
 import {ArtWork} from '../../app/store';
 
 interface Props {
