@@ -30,6 +30,7 @@ interface ArtWorkState {
   favoriteArtWorks: artWorkId[];
   setArtWorkDetails: (args: SetArtWorkDetails) => void;
   addToFavorites: (id: AddToFavorites) => void;
+  clearFavorites: () => void;
 }
 
 const initialArtWork = {
@@ -63,6 +64,7 @@ export const useStore = create<ArtWorkState>()(
           }
           return {favoriteArtWorks: [...state.favoriteArtWorks, artWorkId]};
         }),
+      clearFavorites: () => set(() => ({favoriteArtWorks: []})),
     }),
     {
       name: ARTWORK_STORAGE_ID,

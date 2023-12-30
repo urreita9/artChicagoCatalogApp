@@ -5,6 +5,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    margin: 5,
+    marginHorizontal: 5,
+    marginVertical: 10,
+  },
+  location: {
+    alignItems: 'flex-end',
+  },
+  locationText: {
+    fontStyle: 'italic',
   },
 });
