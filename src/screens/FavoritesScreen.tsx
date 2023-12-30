@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
-
+import {SafeAreaView} from 'react-native';
 import {useStore} from '../app/store';
 import {FAVORITES_SCREEN} from '../navigation/constants';
 import Feed from '../components/Feed';
