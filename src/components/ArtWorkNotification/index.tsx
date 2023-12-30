@@ -20,13 +20,6 @@ const ArtWorkNotification = () => {
               fireDate: new Date(new Date().getTime() + 5000),
             });
           } else if (Platform.OS === 'android') {
-            PushNotification.createChannel(
-              {
-                channelId: '1',
-                channelName: 'Channel Name',
-              },
-              () => {},
-            );
             PushNotification.localNotificationSchedule({
               channelId: '1',
               message: `Check out '${randomArtWorkDetails.title}'`,
