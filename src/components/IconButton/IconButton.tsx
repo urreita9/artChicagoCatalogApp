@@ -7,7 +7,7 @@ import {scale} from 'react-native-size-matters';
 
 interface Props {
   icon: string;
-  text: string;
+  text?: string;
   onPress: () => void;
 }
 
@@ -16,7 +16,7 @@ const IconButton = ({onPress, text, icon}: Props) => {
     <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
       <View style={styles.container}>
         <Icon name={icon} color={Colors.primary} size={scale(20)} />
-        <Text style={styles.text}>{text}</Text>
+        {text && <Text style={styles.text}>{text}</Text>}
       </View>
     </TouchableOpacity>
   );

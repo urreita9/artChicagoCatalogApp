@@ -6,14 +6,20 @@ import styles from './HomeHeader.styles';
 import Colors from '../../utils/colors';
 
 interface Props {
-  navBtnPress: () => void;
+  onMapBtnPress: () => void;
+  address: string;
+  city: string;
 }
 
-const HomeHeader = ({navBtnPress}: Props) => {
+const HomeHeader = ({onMapBtnPress, address, city}: Props) => {
   return (
     <View style={styles.container}>
       <Logo color={Colors.primary} />
-      <IconButton text="Favorites" icon="favorite" onPress={navBtnPress} />
+      <View style={styles.location}>
+        <IconButton icon="location-pin" onPress={onMapBtnPress} />
+        <Text style={styles.locationText}>{address}</Text>
+        <Text style={styles.locationText}>{city}</Text>
+      </View>
     </View>
   );
 };

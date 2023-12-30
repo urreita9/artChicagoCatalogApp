@@ -18,9 +18,25 @@ const ArtWorkScreen = ({route, navigation}: Props) => {
         <ArtWorkDetails artWork={artWorkDetails} />
       </ScrollView>
       <FloattingButton
-        onPressFav={() => addToFavorites({artWorkId: artWorkDetails.id})}
-        onPressShare={() => console.log('press share')}
-        itemIsFav={favoriteArtWorks.includes(artWorkDetails.id)}
+        mainIcon={{
+          icon: 'add',
+          iconActive: 'add',
+          onPress: null,
+          isActive: false,
+        }}
+        iconOne={{
+          icon: 'favorite-outline',
+          iconActive: 'favorite',
+          onPress: () => addToFavorites({artWorkId: artWorkDetails.id}),
+          isActive: favoriteArtWorks.includes(artWorkDetails.id),
+        }}
+        iconTwo={{
+          icon: 'share',
+          iconActive: 'share',
+          onPress: () => console.log('press share'),
+          isActive: false,
+        }}
+        animate
       />
     </>
   );

@@ -5,6 +5,7 @@ import {RootStackParamList} from '../navigation/MainStackNavigator';
 import {FAVORITES_SCREEN} from '../navigation/constants';
 import Catalog from '../components/Catalog/Catalog';
 import {useStore} from '../app/store';
+import FloattingButton from '../components/FloatingButton/FloattingButton';
 
 type Props = NativeStackScreenProps<
   RootStackParamList,
@@ -12,10 +13,20 @@ type Props = NativeStackScreenProps<
 >;
 
 const FavoritesScreen = ({route, navigation}: Props) => {
-  const {favoriteArtWorks} = useStore();
+  const {favoriteArtWorks, clearFavorites} = useStore();
 
   return favoriteArtWorks.length ? (
-    <Catalog screen={FAVORITES_SCREEN} />
+    <>
+      <Catalog screen={FAVORITES_SCREEN} />
+      <FloattingButton
+        mainIcon={{
+          icon: 'delete-outline',
+          iconActive: 'delete-outline',
+          onPress: clearFavorites,
+          isActive: false,
+        }}
+      />
+    </>
   ) : (
     <View>
       <Text>Favorites is empty!</Text>
