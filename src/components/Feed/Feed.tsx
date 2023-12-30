@@ -31,6 +31,8 @@ const Feed = ({
         subtitle={item.artist_title}
         image={item.thumbnail?.lqip || ''}
         altImage={item.thumbnail?.alt_text || ''}
+        id={item.id}
+        icon
       />
     </Pressable>
   );

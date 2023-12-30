@@ -1,17 +1,42 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {moderateScale} from 'react-native-size-matters';
+import {moderateScale, scale} from 'react-native-size-matters';
 import styles from './ArtWorkCard.styles';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from 'react-native-reanimated';
+import {useStore} from '../../app/store';
+import Colors from '../../utils/colors';
 
 interface Props {
   image: string;
   altImage: string;
   title: string;
   subtitle: string;
+  icon?: boolean;
+  id: number;
 }
 
-const Card = ({image, altImage, title, subtitle}: Props) => {
+const Card = ({image, altImage, title, subtitle, icon, id}: Props) => {
+  const {favoriteArtWorks, addToFavorites} = useStore();
+  const scale = useSharedValue(1);
+
+  const handlePress = () => {
+    addToFavorites({artWorkId: id});
+    scale.value = withSpring(1.2, undefined, () => {
+      scale.value = withSpring(1);
+    });
+  };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{scale: scale.value}],
+    };
+  });
+
   return (
     <View style={styles.container}>
       {image ? (
@@ -35,6 +60,21 @@ const Card = ({image, altImage, title, subtitle}: Props) => {
           <Text style={styles.subtitle}>{subtitle}</Text>
         </View>
       </View>
+      {icon && (
+        <Animated.View style={[styles.iconContainer, animatedStyle]}>
+          <Pressable onPress={handlePress}>
+            <Icon
+              name={
+                favoriteArtWorks.includes(id) ? 'favorite' : 'favorite-outline'
+              }
+              size={26}
+              color={
+                favoriteArtWorks.includes(id) ? Colors.primary : Colors.black
+              }
+            />
+          </Pressable>
+        </Animated.View>
+      )}
     </View>
   );
 };

@@ -34,8 +34,8 @@ const useArtWorks = ({screen}: Props) => {
   const getAllArtWorks = async () => {
     try {
       if (currentPage > lastPage.current) return;
-
       currentPage !== 1 && setMoreDataLoading(true);
+
       const res = await ArtWorkAPI.getAllArtWorks({
         page: currentPage,
         limit: 10,
