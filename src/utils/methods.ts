@@ -1,4 +1,5 @@
 import {Platform} from 'react-native';
+import {ArtWorksData} from '../services/ArtWorkAPI/types';
 
 export const artInstitute = {
   lat: 41.8795845,
@@ -18,4 +19,9 @@ export const getMapCoords = () => {
       android: `${scheme}${latLng}(${artInstitute.label})`,
     }) || ''
   );
+};
+
+export const getRandomItem = (data: ArtWorksData[]) => {
+  const randomIndex = Math.floor(Math.random() * data.length);
+  return data[randomIndex];
 };

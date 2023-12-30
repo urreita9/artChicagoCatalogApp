@@ -1,9 +1,10 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
 import ArtWorkAPI from '../services/ArtWorkAPI/ArtWorkAPI';
 import {useStore} from '../app/store';
-import {ArtWorksResponse} from '../services/ArtWorkAPI/interfaces/AllArtWorks';
 import {FAVORITES_SCREEN, HOME_SCREEN} from '../navigation/constants';
 import {useFocusEffect} from '@react-navigation/native';
+import {ArtWorksResponse} from '../services/ArtWorkAPI/types';
+import {getRandomItem} from '../utils/methods';
 
 interface Props {
   screen: typeof FAVORITES_SCREEN | typeof HOME_SCREEN;
@@ -16,7 +17,7 @@ const useArtWorks = ({screen}: Props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = useRef(1);
 
-  const {favoriteArtWorks} = useStore();
+  const {favoriteArtWorks, setRandomArtWorkDetails} = useStore();
 
   const setFavoriteArtWorks = (res: ArtWorksResponse) => {
     setArtWorks(() => ({
@@ -43,9 +44,29 @@ const useArtWorks = ({screen}: Props) => {
       });
 
       lastPage.current = res.pagination?.total_pages || currentPage;
+      const randomItem = getRandomItem([
+        ...(artWorks?.data || []),
+        ...res.data,
+      ]);
 
       switch (screen) {
         case HOME_SCREEN:
+          setRandomArtWorkDetails({
+            artWork: {
+              id: randomItem.id,
+              artist: randomItem.artist_title || '',
+              description: randomItem.description || '',
+              dimensions: randomItem.dimensions || '',
+              imageUrl:
+                res?.config.iiif_url +
+                  `/${randomItem.image_id}/full/843,/0/default.jpg` || '',
+              altImage: randomItem.thumbnail?.alt_text || '',
+              thumbnail: randomItem.thumbnail?.lqip || '',
+              origin: randomItem.place_of_origin || '',
+              title: randomItem.title || '',
+              dateDisplay: randomItem.date_display,
+            },
+          });
           setHomeArtWorks(res);
           break;
         case FAVORITES_SCREEN:
