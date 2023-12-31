@@ -19,6 +19,8 @@ This project, developed during the week of Dec 27 - Dec 31, serves as a React Na
 ## Key Technologies Used
 - **Zustand:** State management for a streamlined and efficient application state.
 - **MMKV:** Integrated for data persistence, enabling the app to save and retrieve an array of artwork IDs. This helps in requesting the remaining data when the app is reopened.
+- **Responsive Design:** Ensured responsiveness across different devices using `react-native-size-matters` for consistent styles.
+- **Animations:** Implemented animations with `react-native-reanimated` for a smooth and engaging user experience.
 
 ## Push Notifications
 Upon entering the background, the app generates a push notification after a 5-second delay (for demonstration purposes, but this timing can be adjusted). The notification showcases a random artwork from the feed. When users tap the notification, they are directed to the details screen of the highlighted artwork.
@@ -31,6 +33,7 @@ Upon entering the background, the app generates a push notification after a 5-se
 Given additional time, thorough testing would be conducted to enhance the app's overall quality and reliability.
 
 Feel free to explore the app and provide feedback or suggestions for further improvement!
+
 
 
 
