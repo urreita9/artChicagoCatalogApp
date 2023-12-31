@@ -29,6 +29,10 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 INSTRUCTIONS: create a .env file in the main directory and put:
 API_BASE_URL='the_api_base_url'
 ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 19 11](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/55d691d4-6bad-4330-b0ae-a9e4c73f9d2e)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 20](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/029464f4-7b00-468b-807c-4fade9ec2d79)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 24](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/07d122a3-b898-4c17-85d7-0f25c8ba578e)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 38](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/42035f24-6781-4c02-8afd-c57a6159f2c9)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 24 07](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/e6e256fb-3a27-4f60-87ea-ebc0ccc6241b)
 
 
 # Getting Started
