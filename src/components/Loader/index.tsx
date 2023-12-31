@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, ActivityIndicator, Modal} from 'react-native';
-import styles from './styles';
+import {ActivityIndicator} from 'react-native';
 import Colors from '../../utils/colors';
+import CustomModal from '../CustomModal';
 
 interface Props {
   loading: boolean;
@@ -9,17 +9,13 @@ interface Props {
 
 const Loading = ({loading}: Props) => {
   return (
-    <Modal transparent={true} animationType={'none'} visible={loading}>
-      <View style={styles.modalBackground}>
-        <View style={styles.activityIndicatorWrapper}>
-          <ActivityIndicator
-            size={'large'}
-            color={Colors.primary}
-            animating={loading}
-          />
-        </View>
-      </View>
-    </Modal>
+    <CustomModal visible={loading}>
+      <ActivityIndicator
+        size={'large'}
+        color={Colors.primary}
+        animating={loading}
+      />
+    </CustomModal>
   );
 };
 

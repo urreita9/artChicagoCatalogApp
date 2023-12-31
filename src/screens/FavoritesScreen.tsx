@@ -6,11 +6,22 @@ import Feed from '../components/Feed';
 import {scale} from 'react-native-size-matters';
 import Colors from '../utils/colors';
 import IconMessage from '../components/IconMessage';
+import useArtWorks from '../hooks/useArtWorks';
 
 const FavoritesScreen = () => {
+  const {error} = useArtWorks({screen: FAVORITES_SCREEN});
   const {favoriteArtWorks} = useStore();
 
-  return (
+  return error ? (
+    <IconMessage
+      icon={{
+        name: 'error-outline',
+        size: scale(60),
+        color: Colors.primary,
+      }}
+      message={error}
+    />
+  ) : (
     <SafeAreaView style={{flex: 1}}>
       {favoriteArtWorks.length ? (
         <Feed screen={FAVORITES_SCREEN} />

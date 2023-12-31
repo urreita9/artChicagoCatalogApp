@@ -9,6 +9,7 @@ import {
   NavigationProp,
 } from '@react-navigation/native';
 import BottomTabNavigator from './BottomTabNavigator';
+import colors from '../utils/colors';
 
 export type RootStackParamList = {
   [HOME_BOTTOM_TAB]: undefined;
@@ -30,7 +31,14 @@ const MainNavigator = () => {
           component={BottomTabNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen name={ARTWORK_SCREEN} component={ArtWork} />
+        <Stack.Screen
+          name={ARTWORK_SCREEN}
+          component={ArtWork}
+          options={{
+            headerBackTitleVisible: false,
+            headerTintColor: colors.primary,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

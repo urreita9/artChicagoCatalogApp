@@ -8,7 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#00000040',
   },
-  activityIndicatorWrapper: {
+  contentWrapper: {
     backgroundColor: '#FFFFFF',
     height: 100,
     width: 100,

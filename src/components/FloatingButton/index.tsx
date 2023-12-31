@@ -89,7 +89,11 @@ const FloattingButton = ({iconOne, iconTwo, mainIcon, animate}: Props) => {
   return (
     <View style={styles.container}>
       {iconOne?.icon && (
-        <Pressable onPress={iconOne.onPress}>
+        <Pressable
+          onPress={() => {
+            handlePress();
+            iconOne.onPress && iconOne.onPress();
+          }}>
           <Animated.View style={[styles.contentContainer, firstIcon]}>
             <View style={styles.iconContainer}>
               <Icon
@@ -102,7 +106,11 @@ const FloattingButton = ({iconOne, iconTwo, mainIcon, animate}: Props) => {
         </Pressable>
       )}
       {iconTwo?.icon && (
-        <Pressable onPress={iconTwo.onPress}>
+        <Pressable
+          onPress={() => {
+            handlePress();
+            iconTwo.onPress && iconTwo.onPress();
+          }}>
           <Animated.View style={[styles.contentContainer, secondIcon]}>
             <View style={styles.iconContainer}>
               <Icon
