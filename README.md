@@ -1,4 +1,4 @@
-[Screen Recording 2023-12-31 at 02.49.36.zip](https://github.com/urreita9/artChicagoCatalogApp/files/13800404/Screen.Recording.2023-12-31.at.02.49.36.zip)Hi! This is a challenge I made this past week (Dec 27 - Dec 31) for a React Native JR Job Position!
+Hi! This is a challenge I made this past week (Dec 27 - Dec 31) for a React Native JR Job Position!
 
 The app:
 
