@@ -1,33 +1,33 @@
+# React Native Art Catalog App
 
-React Native Art Catalog App
-Overview:
-This project was developed during the week of Dec 27 - Dec 31 as a React Native Junior Developer job application challenge.
+## Overview
+This project, developed during the week of Dec 27 - Dec 31, serves as a React Native Junior Developer job application challenge.
 
-App Features:
+## App Features
 
-Home Screen:
+### Home Screen
+- **Header:** Displays the Art Institute of Chicago logo and a map link for directions.
+- **Feed:** Presents a list of artworks retrieved from the institute's public API. Initially loads 10 artworks, and as the user scrolls down, an additional set of 10 artworks is fetched for infinite scrolling.
 
-Header: Displays the Art Institute of Chicago logo and a map link for directions.
-Feed: Presents a list of artworks retrieved from the institute's public API. Initially loads 10 artworks, and as the user scrolls down, an additional set of 10 artworks is fetched for infinite scrolling.
-Favorites Screen:
+### Favorites Screen
+- **Feed:** Similar to the Home screen's feed but exclusively shows artworks that users have liked (by pressing the heart icon).
 
-Feed: Similar to the Home screen's feed but exclusively shows artworks that users have liked (by pressing the heart icon).
-ArtWork Details Screen:
+### ArtWork Details Screen
+- **Details:** Offers in-depth information and a high-resolution image for a selected artwork. Users navigate to this screen by selecting an item from the feed.
+- **Floating Button:** Positioned at the bottom right corner, this floating action button triggers an animation, revealing two additional buttons (like and a "tickets to the museum" link to the institute's website).
 
-Details: Offers in-depth information and a high-resolution image for a selected artwork. Users navigate to this screen by selecting an item from the feed.
-Floating Button: Positioned at the bottom right corner, this floating action button triggers an animation, revealing two additional buttons (like and a "tickets to the museum" link to the institute's website).
-Key Technologies Used:
+## Key Technologies Used
+- **Zustand:** State management for a streamlined and efficient application state.
+- **MMKV:** Integrated for data persistence, enabling the app to save and retrieve an array of artwork IDs. This helps in requesting the remaining data when the app is reopened.
 
-Zustand: State management for a streamlined and efficient application state.
-MMKV: Integrated with Zustand for data persistence, enabling the app to save and retrieve an array of artwork IDs. This helps in requesting the remaining data when the app is reopened.
-Push Notifications:
-
+## Push Notifications
 Upon entering the background, the app generates a push notification after a 5-second delay (for demonstration purposes, but this timing can be adjusted). The notification showcases a random artwork from the feed. When users tap the notification, they are directed to the details screen of the highlighted artwork.
-Navigation:
 
-Bottom Tab Navigator: Facilitates navigation between Home and Favorites.
-Stack Navigator: Utilized for navigating to the Details screen.
-Future Improvements:
+## Navigation
+- **Bottom Tab Navigator:** Facilitates navigation between Home and Favorites.
+- **Stack Navigator:** Utilized for navigating to the Details screen.
+
+## Future Improvements
 Given additional time, thorough testing would be conducted to enhance the app's overall quality and reliability.
 
 Feel free to explore the app and provide feedback or suggestions for further improvement!
