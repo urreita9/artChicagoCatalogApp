@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import MainNavigator from './src/navigation/MainStackNavigator';
 import ArtWorkNotification from './src/components/ArtWorkNotification';
 import {PermissionsAndroid, Platform} from 'react-native';
+import usePushNotifications from './src/hooks/usePushNotifications';
 
 const checkApplicationPermission = async () => {
   try {
@@ -12,17 +13,15 @@ const checkApplicationPermission = async () => {
 };
 
 const App = (): React.JSX.Element => {
+  usePushNotifications();
+
   useEffect(() => {
     if (Platform.OS === 'android') {
       checkApplicationPermission();
     }
   }, []);
-  return (
-    <>
-      <MainNavigator />
-      <ArtWorkNotification />
-    </>
-  );
+
+  return <MainNavigator />;
 };
 
 export default App;

@@ -7,12 +7,12 @@ import {ArtWorksResponse} from '../services/ArtWorkAPI/types';
 import {getRandomItem} from '../utils/methods';
 
 interface Props {
-  screen: typeof FAVORITES_SCREEN | typeof HOME_SCREEN;
+  screen?: typeof FAVORITES_SCREEN | typeof HOME_SCREEN | null;
 }
 
 const useArtWorks = ({screen}: Props) => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState('');
   const [moreDataLoading, setMoreDataLoading] = useState(false);
   const [artWorks, setArtWorks] = useState<ArtWorksResponse>();
   const [currentPage, setCurrentPage] = useState(1);
@@ -77,8 +77,8 @@ const useArtWorks = ({screen}: Props) => {
           setHomeArtWorks(res);
           break;
       }
-    } catch (err) {
-      setError(true);
+    } catch (err: any) {
+      setError(err.message || 'Error');
     } finally {
       currentPage === 1 ? setLoading(false) : setMoreDataLoading(false);
     }

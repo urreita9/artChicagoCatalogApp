@@ -1,11 +1,15 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {Linking, ScrollView} from 'react-native';
 import ArtWorkDetails from '../components/ArtWorkDetails';
 import {useStore} from '../app/store';
 import FloattingButton from '../components/FloatingButton';
 
 const ArtWorkScreen = () => {
   const {artWorkDetails, addToFavorites, favoriteArtWorks} = useStore();
+
+  const buyTickets = async () => {
+    await Linking.openURL(`https://sales.artic.edu/admissions`);
+  };
 
   return (
     <>
@@ -26,9 +30,9 @@ const ArtWorkScreen = () => {
           isActive: favoriteArtWorks.includes(artWorkDetails.id),
         }}
         iconTwo={{
-          icon: 'share',
-          iconActive: 'share',
-          onPress: () => console.log('press share'),
+          icon: 'museum',
+          iconActive: 'museum',
+          onPress: buyTickets,
           isActive: false,
         }}
         animate
