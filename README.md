@@ -1,30 +1,39 @@
-Hi! This is a challenge I made this past week (Dec 27 - Dec 31) for a React Native JR Job Position!
 
-The app:
+React Native Art Catalog App
+Overview:
+This project was developed during the week of Dec 27 - Dec 31 as a React Native Junior Developer job application challenge.
 
-Basically has three screens:
-- Home:
-   - Header: Art Institute of Chicago logo and a map link to get directions
-   - Feed: List of artworks requested to the institute's public api. It gets 10, and when you scroll down and get to the bottom of the screen, gets another 10: infinite scroll.
-- Favorites:
-   - Feed: Same component as before. But here we get only the ones that we liked (pressing on the heart icon).
-- ArtWork details:
-   - Details: A screen where we can see more data and a better picture from a given artwork. We get here pressing on an item from the Feed.
-   - Floating Button: A floating action butotn on the bottom right corner of the screen. It has an animation where two other buttons appear (like and a "tickets to the museum" link to the insitute's website).
+App Features:
 
-I used zustand, integrated with mmkv (storage library) so that we can persist data when we close the app. We save an array of artworks id's, and when we re open the app, we use them to request the rest of the data.
+Home Screen:
 
-Push notifications:
-- as requested, everytime the app gets on the background, a push notification gets triggered -5 seconds after this event (just for showasing, it could be any given time)- sending the user a random artwork from the Feed. When the notification gets pressed, the user is taken to the details screen of that artwork.
+Header: Displays the Art Institute of Chicago logo and a map link for directions.
+Feed: Presents a list of artworks retrieved from the institute's public API. Initially loads 10 artworks, and as the user scrolls down, an additional set of 10 artworks is fetched for infinite scrolling.
+Favorites Screen:
 
+Feed: Similar to the Home screen's feed but exclusively shows artworks that users have liked (by pressing the heart icon).
+ArtWork Details Screen:
+
+Details: Offers in-depth information and a high-resolution image for a selected artwork. Users navigate to this screen by selecting an item from the feed.
+Floating Button: Positioned at the bottom right corner, this floating action button triggers an animation, revealing two additional buttons (like and a "tickets to the museum" link to the institute's website).
+Key Technologies Used:
+
+Zustand: State management for a streamlined and efficient application state.
+MMKV: Integrated with Zustand for data persistence, enabling the app to save and retrieve an array of artwork IDs. This helps in requesting the remaining data when the app is reopened.
+Push Notifications:
+
+Upon entering the background, the app generates a push notification after a 5-second delay (for demonstration purposes, but this timing can be adjusted). The notification showcases a random artwork from the feed. When users tap the notification, they are directed to the details screen of the highlighted artwork.
 Navigation:
-- Bottom tab navigator: Home / Favorites
-- Stack navigator: Details
 
-With a few more days i'd definetly do some testing.
+Bottom Tab Navigator: Facilitates navigation between Home and Favorites.
+Stack Navigator: Utilized for navigating to the Details screen.
+Future Improvements:
+Given additional time, thorough testing would be conducted to enhance the app's overall quality and reliability.
+
+Feel free to explore the app and provide feedback or suggestions for further improvement!
 
 
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+
 
 INSTRUCTIONS: create a .env file in the main directory and put:
 API_BASE_URL='the_api_base_url'
@@ -34,7 +43,7 @@ API_BASE_URL='the_api_base_url'
 ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 38](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/42035f24-6781-4c02-8afd-c57a6159f2c9)
 ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 24 07](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/e6e256fb-3a27-4f60-87ea-ebc0ccc6241b)
 
-
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
