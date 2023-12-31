@@ -1,4 +1,4 @@
-Hi! This is a challenge I made this past week (Dec 27 - Dec 31) for a React Native JR Job Position!
+[Screen Recording 2023-12-31 at 02.49.36.zip](https://github.com/urreita9/artChicagoCatalogApp/files/13800404/Screen.Recording.2023-12-31.at.02.49.36.zip)Hi! This is a challenge I made this past week (Dec 27 - Dec 31) for a React Native JR Job Position!
 
 The app:
 
@@ -21,9 +21,15 @@ Navigation:
 - Bottom tab navigator: Home / Favorites
 - Stack navigator: Details
 
+With a few more days i'd definetly do some testing.
 
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+
+INSTRUCTIONS: create a .env file in the main directory and put:
+API_BASE_URL='the_api_base_url'
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 19 11](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/55d691d4-6bad-4330-b0ae-a9e4c73f9d2e)
+
 
 # Getting Started
 
