@@ -12,7 +12,7 @@ Basically has three screens:
    - Details: A screen where we can see more data and a better picture from a given artwork. We get here pressing on an item from the Feed.
    - Floating Button: A floating action butotn on the bottom right corner of the screen. It has an animation where two other buttons appear (like and a "tickets to the museum" link to the insitute's website).
 
-We use zustand, integrated with mmkv (storage library) so that we can persist data when we close the app. We save an array of artworks id's, and when we re open the app, we use them to request the rest of the data.
+I used zustand, integrated with mmkv (storage library) so that we can persist data when we close the app. We save an array of artworks id's, and when we re open the app, we use them to request the rest of the data.
 
 Push notifications:
 - as requested, everytime the app gets on the background, a push notification gets triggered -5 seconds after this event (just for showasing, it could be any given time)- sending the user a random artwork from the Feed. When the notification gets pressed, the user is taken to the details screen of that artwork.
