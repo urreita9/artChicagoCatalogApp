@@ -28,6 +28,7 @@ const CardImage = ({image, imageStyle}: Props) => {
       source={imgSrc}
       style={[styles.image, imageStyle]}
       alt={artWork.altImage}
+      testID="Card.Image"
     />
   );
 };
