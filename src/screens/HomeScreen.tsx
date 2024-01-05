@@ -1,23 +1,53 @@
 import React, {useCallback} from 'react';
-import {SafeAreaView, Linking, View, Text} from 'react-native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {HOME_SCREEN} from '../navigation/constants';
+import {SafeAreaView, Linking, Pressable} from 'react-native';
+import {ARTWORK_SCREEN, HOME_SCREEN} from '../navigation/constants';
 import HomeHeader from '../components/HomeHeader';
 import {artInstitute, getMapCoords} from '../utils/methods';
-import {RootBottomParamList} from '../navigation/BottomTabNavigator';
-import Feed from '../components/Feed';
+import Feed, {RenderItem} from '../components/Feed';
 import useArtWorks from '../hooks/useArtWorks';
 import {scale} from 'react-native-size-matters';
 import Colors from '../utils/colors';
 import IconMessage from '../components/IconMessage';
+import Card from '../components/Card';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../navigation/MainStackNavigator';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+import {RootBottomParamList} from '../navigation/BottomTabNavigator';
+import {CompositeScreenProps} from '@react-navigation/native';
 
-const HomeScreen = () => {
-  const {error} = useArtWorks({screen: HOME_SCREEN});
+type HomeScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<RootBottomParamList, typeof HOME_SCREEN>,
+  NativeStackScreenProps<RootStackParamList>
+>;
+
+const HomeScreen = ({navigation}: HomeScreenProps) => {
+  const {onItemPress, error} = useArtWorks({
+    screen: HOME_SCREEN,
+    navigateTo: () => navigation.navigate(ARTWORK_SCREEN),
+  });
+
   const url = getMapCoords();
 
   const handlePress = useCallback(async () => {
     await Linking.openURL(url);
   }, [url]);
+
+  const renderItem = ({item, index}: RenderItem) => (
+    <Pressable onPress={() => onItemPress({item, index})}>
+      <Card
+        artWork={{
+          ...item,
+          image: item.thumbnail?.lqip || '',
+          altImage: item.thumbnail?.alt_text || '',
+          description: item.artist_title,
+        }}>
+        <Card.Image />
+        <Card.Title />
+        <Card.IconButton />
+      </Card>
+    </Pressable>
+  );
+
   return (
     <>
       <SafeAreaView>
@@ -27,7 +57,7 @@ const HomeScreen = () => {
           city={artInstitute.city}
         />
 
-        <Feed screen={HOME_SCREEN} />
+        <Feed screen={HOME_SCREEN} renderItem={renderItem} />
       </SafeAreaView>
       {error && (
         <IconMessage
