@@ -3,6 +3,21 @@
 ## Overview
 This project, developed during the week of Dec 27 - Dec 31, serves as a React Native Junior Developer job application challenge.
 
+Update - January 5, 2024
+Card Component Refactor: Compound Component
+Enhancing the reusability and flexibility of the Card component, it now follows the compound component pattern. Below is an example of its usage:
+```jsx
+<Card artWork={{...}}>
+  <Card.Image />
+  <Card.Title />
+  <Card.Description />
+  <Card.IconButton />
+</Card>
+![Screenshot 2024-01-05 at 16 30 35](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/c87d7b85-05ef-48a5-8c53-6f81b1adb2ca)
+![Screenshot 2024-01-05 at 16 30 50](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/19ee2af0-bda5-4bd7-9950-1591b388823d)
+
+The Card component is designed for versatile reuse. You can easily customize each child component by passing custom styles.
+
 ## App Features
 
 ### Home Screen
