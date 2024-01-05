@@ -11,12 +11,18 @@ Enhancing the reusability and flexibility of the Card component, it now follows 
 <Card artWork={{...}}>
   <Card.Image />
   <Card.Title />
+  <Card.IconButton />
+</Card>
+```
+![Screenshot 2024-01-05 at 16 30 35](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/c87d7b85-05ef-48a5-8c53-6f81b1adb2ca)
+```
+<Card artWork={{...}}>
+  <Card.Image />
+  <Card.Title />
   <Card.Description />
   <Card.IconButton />
 </Card>
 ```
-
-![Screenshot 2024-01-05 at 16 30 35](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/c87d7b85-05ef-48a5-8c53-6f81b1adb2ca)
 ![Screenshot 2024-01-05 at 16 30 50](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/19ee2af0-bda5-4bd7-9950-1591b388823d)
 
 The Card component is designed for versatile reuse. You can easily customize each child component by passing custom styles.
