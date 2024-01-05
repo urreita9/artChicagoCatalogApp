@@ -3,14 +3,16 @@ import ArtWorkAPI from '../services/ArtWorkAPI/ArtWorkAPI';
 import {useStore} from '../app/store';
 import {FAVORITES_SCREEN, HOME_SCREEN} from '../navigation/constants';
 import {useFocusEffect} from '@react-navigation/native';
-import {ArtWorksResponse} from '../services/ArtWorkAPI/types';
+import {ArtWorksResponse} from '../interfaces/interfaces.api';
 import {getRandomItem} from '../utils/methods';
+import {RenderItem} from '../components/Feed';
 
 interface Props {
   screen?: typeof FAVORITES_SCREEN | typeof HOME_SCREEN | null;
+  navigateTo?: () => void;
 }
 
-const useArtWorks = ({screen}: Props) => {
+const useArtWorks = ({screen, navigateTo}: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [moreDataLoading, setMoreDataLoading] = useState(false);
@@ -18,7 +20,8 @@ const useArtWorks = ({screen}: Props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = useRef(1);
 
-  const {favoriteArtWorks, setRandomArtWorkDetails} = useStore();
+  const {setArtWorkDetails, favoriteArtWorks, setRandomArtWorkDetails} =
+    useStore();
 
   const setFavoriteArtWorks = (res: ArtWorksResponse) => {
     setArtWorks(() => ({
@@ -110,6 +113,26 @@ const useArtWorks = ({screen}: Props) => {
     }
   };
 
+  const onItemPress = ({item}: RenderItem) => {
+    setArtWorkDetails({
+      artWork: {
+        id: item.id,
+        artist: item.artist_title || '',
+        description: item.description || '',
+        dimensions: item.dimensions || '',
+        imageUrl:
+          artWorks?.config.iiif_url +
+            `/${item.image_id}/full/843,/0/default.jpg` || '',
+        altImage: item.thumbnail?.alt_text || '',
+        thumbnail: item.thumbnail?.lqip || '',
+        origin: item.place_of_origin || '',
+        title: item.title || '',
+        dateDisplay: item.date_display,
+      },
+    });
+    navigateTo && navigateTo();
+  };
+
   return {
     loading,
     moreDataLoading,
@@ -117,6 +140,7 @@ const useArtWorks = ({screen}: Props) => {
     loadMoreArtWorks,
     addNextPage,
     error,
+    onItemPress,
   };
 };
 

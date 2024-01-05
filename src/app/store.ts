@@ -21,7 +21,7 @@ interface SetArtWorkDetails {
   artWork: ArtWork;
 }
 
-interface ArtWorkIdArg {
+export interface ArtWorkIdArg {
   artWorkId: artWorkId;
 }
 
