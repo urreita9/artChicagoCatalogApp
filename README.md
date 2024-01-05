@@ -3,8 +3,8 @@
 ## Overview
 This project, developed during the week of Dec 27 - Dec 31, serves as a React Native Junior Developer job application challenge.
 
-Update - January 5, 2024
-Card Component Refactor: Compound Component
+## Update - January 5, 2024
+# Card Component Refactor: Compound Component
 Enhancing the reusability and flexibility of the Card component, it now follows the compound component pattern. Below is an example of its usage:
 
 ```
@@ -19,7 +19,7 @@ Enhancing the reusability and flexibility of the Card component, it now follows 
 <Card artWork={{...}}>
   <Card.Image />
   <Card.Title />
-  <Card.Description />
+  <Card.Description /> // Added
   <Card.IconButton />
 </Card>
 ```
