@@ -19,16 +19,20 @@ type FavoriteScreenProps = CompositeScreenProps<
   NativeStackScreenProps<RootStackParamList>
 >;
 const FavoritesScreen = ({navigation}: FavoriteScreenProps) => {
-  const {onItemPress, error} = useArtWorks({
+  const {onArtworkItemPress, error} = useArtWorks({
     screen: FAVORITES_SCREEN,
-    navigateTo: () => {
-      navigation.navigate(ARTWORK_SCREEN);
-    },
   });
   const {favoriteArtWorks} = useStore();
 
   const renderItem = ({item, index}: RenderItem) => (
-    <Pressable onPress={() => onItemPress({item, index})}>
+    <Pressable
+      onPress={() =>
+        onArtworkItemPress({
+          item,
+          index,
+          navigateTo: () => navigation.navigate(ARTWORK_SCREEN),
+        })
+      }>
       <Card
         artWork={{
           ...item,
