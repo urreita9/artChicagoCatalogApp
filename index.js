@@ -4,7 +4,7 @@ import {name as appName} from './app.json';
 import PushNotifiacion from 'react-native-push-notification';
 import PushNotificacionIos from '@react-native-community/push-notification-ios';
 import {navigationRef} from './src/navigation/MainStackNavigator';
-import {ARTWORK_SCREEN, FAVORITES_SCREEN} from './src/navigation/constants';
+import {ARTWORK_SCREEN} from './src/navigation/constants';
 
 AppRegistry.registerComponent(appName, () => App);
 

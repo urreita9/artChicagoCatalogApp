@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import MainNavigator from './src/navigation/MainStackNavigator';
 import {PermissionsAndroid, Platform} from 'react-native';
+import MainNavigator from './src/navigation/MainStackNavigator';
+import SplashScreen from 'react-native-splash-screen';
 import usePushNotifications from './src/hooks/usePushNotifications';
 
 const checkApplicationPermission = async () => {
@@ -18,6 +19,7 @@ const App = (): React.JSX.Element => {
     if (Platform.OS === 'android') {
       checkApplicationPermission();
     }
+    SplashScreen.hide();
   }, []);
 
   return <MainNavigator />;
