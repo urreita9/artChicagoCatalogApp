@@ -5,7 +5,7 @@ import {ArtWork} from '../../../../src/interfaces/interfaces.card';
 
 const artWork: ArtWork = {
   altImage: 'artwork pic',
-  description: 'Artist',
+  description: 'Description',
   id: 1,
   image: '',
   title: 'Artwork title',
@@ -20,7 +20,7 @@ describe('Card component', () => {
       </Card>,
     );
 
-    expect(getByText(artWork.title)).toBeOnTheScreen();
+    expect(getByText('Artwork title')).toBeOnTheScreen();
   });
   it('Should render description text when Card.Description is passed as children', () => {
     const {getByText} = render(
@@ -29,7 +29,7 @@ describe('Card component', () => {
       </Card>,
     );
 
-    expect(getByText(artWork.description)).toBeOnTheScreen();
+    expect(getByText('Description')).toBeOnTheScreen();
   });
   it('Card.Image should have a correct "alt" property', () => {
     const {getByTestId} = render(
@@ -65,16 +65,16 @@ describe('Card component', () => {
     expect(getByTestId('Card.Image')).toHaveProp('source', imgSrc);
   });
   it('Card.Image should have the right image source when image prop is passed', () => {
-    const imgSrc = 'imgSource';
     const {getByTestId} = render(
       <Card artWork={artWork}>
         <Card.Image
           imageStyle={{borderRadius: 0, height: 50, width: 50}}
-          image={imgSrc}
+          image="imgSource"
         />
       </Card>,
     );
+    const imgSrc = {uri: 'imgSource'};
 
-    expect(getByTestId('Card.Image')).toHaveProp('source', {uri: imgSrc});
+    expect(getByTestId('Card.Image')).toHaveProp('source', imgSrc);
   });
 });
