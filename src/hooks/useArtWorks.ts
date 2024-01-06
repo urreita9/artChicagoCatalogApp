@@ -7,12 +7,15 @@ import {ArtWorksResponse} from '../interfaces/interfaces.api';
 import {getRandomItem} from '../utils/methods';
 import {RenderItem} from '../components/Feed';
 
-interface Props {
-  screen?: typeof FAVORITES_SCREEN | typeof HOME_SCREEN | null;
+interface OnArtworkItemPress extends RenderItem {
   navigateTo?: () => void;
 }
 
-const useArtWorks = ({screen, navigateTo}: Props) => {
+interface Props {
+  screen?: typeof FAVORITES_SCREEN | typeof HOME_SCREEN | null;
+}
+
+const useArtWorks = ({screen}: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [moreDataLoading, setMoreDataLoading] = useState(false);
@@ -113,7 +116,7 @@ const useArtWorks = ({screen, navigateTo}: Props) => {
     }
   };
 
-  const onItemPress = ({item}: RenderItem) => {
+  const onArtworkItemPress = ({item, navigateTo}: OnArtworkItemPress) => {
     setArtWorkDetails({
       artWork: {
         id: item.id,
@@ -140,7 +143,7 @@ const useArtWorks = ({screen, navigateTo}: Props) => {
     loadMoreArtWorks,
     addNextPage,
     error,
-    onItemPress,
+    onArtworkItemPress,
   };
 };
 
