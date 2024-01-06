@@ -21,9 +21,8 @@ type HomeScreenProps = CompositeScreenProps<
 >;
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
-  const {onItemPress, error} = useArtWorks({
+  const {onArtworkItemPress, error} = useArtWorks({
     screen: HOME_SCREEN,
-    navigateTo: () => navigation.navigate(ARTWORK_SCREEN),
   });
 
   const url = getMapCoords();
@@ -33,7 +32,14 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   }, [url]);
 
   const renderItem = ({item, index}: RenderItem) => (
-    <Pressable onPress={() => onItemPress({item, index})}>
+    <Pressable
+      onPress={() =>
+        onArtworkItemPress({
+          item,
+          index,
+          navigateTo: () => navigation.navigate(ARTWORK_SCREEN),
+        })
+      }>
       <Card
         artWork={{
           ...item,
