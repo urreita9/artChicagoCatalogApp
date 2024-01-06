@@ -28,6 +28,8 @@ Enhancing the reusability and flexibility of the Card component, it now follows 
 The Card component is designed for versatile reuse. You can easily customize each child component by passing custom styles.
 
 ## App Features
+### Splash Screen
+- **Splash Screen:** Displays the Art Institute of Chicago logo when the app is opened.
 
 ### Home Screen
 - **Header:** Displays the Art Institute of Chicago logo and a map link for directions.
