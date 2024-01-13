@@ -2,6 +2,7 @@ iOS: [![Build status](https://build.appcenter.ms/v0.1/apps/ce366ead-de2b-40c0-b9
 
 Android: [![Build status](https://build.appcenter.ms/v0.1/apps/98e39c79-a276-42a1-92b4-f81d4df109ae/branches/development/badge)](https://appcenter.ms)
 
+
 # React Native Art Catalog App
 
 ## Overview
