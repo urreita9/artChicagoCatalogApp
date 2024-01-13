@@ -1,5 +1,80 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Art Catalog App
 
+## Overview
+This project, developed during the week of Dec 27 - Dec 31, serves as a React Native Junior Developer job application challenge.
+
+## Update - January 5, 2024
+# Card Component Refactor: Compound Component
+Enhancing the reusability and flexibility of the Card component, it now follows the compound component pattern. Below is an example of its usage:
+
+```
+<Card artWork={{...}}>
+  <Card.Image />
+  <Card.Title />
+  <Card.IconButton />
+</Card>
+```
+![Screenshot 2024-01-05 at 16 30 35](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/c87d7b85-05ef-48a5-8c53-6f81b1adb2ca)
+```
+<Card artWork={{...}}>
+  <Card.Image />
+  <Card.Title />
+  <Card.Description /> // Added
+  <Card.IconButton />
+</Card>
+```
+![Screenshot 2024-01-05 at 16 30 50](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/19ee2af0-bda5-4bd7-9950-1591b388823d)
+
+The Card component is designed for versatile reuse. You can easily customize each child component by passing custom styles.
+
+## App Features
+### Splash Screen
+- **Splash Screen:** Displays the Art Institute of Chicago logo when the app is opened.
+
+### Home Screen
+- **Header:** Displays the Art Institute of Chicago logo and a map link for directions.
+- **Feed:** Presents a list of artworks retrieved from the institute's public API. Initially loads 10 artworks, and as the user scrolls down, an additional set of 10 artworks is fetched for infinite scrolling.
+
+### Favorites Screen
+- **Feed:** Similar to the Home screen's feed but exclusively shows artworks that users have liked (by pressing the heart icon).
+
+### ArtWork Details Screen
+- **Details:** Offers in-depth information and a high-resolution image for a selected artwork. Users navigate to this screen by selecting an item from the feed.
+- **Floating Button:** Positioned at the bottom right corner, this floating action button triggers an animation, revealing two additional buttons (like and a "tickets to the museum" link to the institute's website).
+
+## Key Technologies Used
+- **Zustand:** State management for a streamlined and efficient application state.
+- **MMKV:** Integrated for data persistence, enabling the app to save and retrieve an array of artwork IDs. This helps in requesting the remaining data when the app is reopened.
+- **Responsive Design:** Ensured responsiveness across different devices using `react-native-size-matters` for consistent styles.
+- **Animations:** Implemented animations with `react-native-reanimated` for a smooth and engaging user experience.
+
+## Push Notifications
+Upon entering the background, the app generates a push notification after a 5-second delay (for demonstration purposes, but this timing can be adjusted). The notification showcases a random artwork from the feed. When users tap the notification, they are directed to the details screen of the highlighted artwork.
+
+## Navigation
+- **Bottom Tab Navigator:** Facilitates navigation between Home and Favorites.
+- **Stack Navigator:** Utilized for navigating to the Details screen.
+
+## Future Improvements
+Given additional time, thorough testing would be conducted to enhance the app's overall quality and reliability.
+
+Feel free to explore the app and provide feedback or suggestions for further improvement!
+
+
+
+
+
+## INSTRUCTIONS: create a .env file in the main directory and put:
+API_BASE_URL='the_api_base_url'
+
+
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 19 11](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/55d691d4-6bad-4330-b0ae-a9e4c73f9d2e)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 20](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/029464f4-7b00-468b-807c-4fade9ec2d79)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 24](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/07d122a3-b898-4c17-85d7-0f25c8ba578e)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 20 38](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/42035f24-6781-4c02-8afd-c57a6159f2c9)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-12-31 at 03 24 07](https://github.com/urreita9/artChicagoCatalogApp/assets/71611977/e6e256fb-3a27-4f60-87ea-ebc0ccc6241b)
+
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
