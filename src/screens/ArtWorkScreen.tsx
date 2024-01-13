@@ -1,11 +1,13 @@
 import React from 'react';
-import {Linking, ScrollView} from 'react-native';
+import {Linking, Pressable, ScrollView, Text} from 'react-native';
 import ArtWorkDetails from '../components/ArtWorkDetails';
 import {useStore} from '../app/store';
 import FloattingButton from '../components/FloatingButton';
+import {useNavigation} from '@react-navigation/native';
 
 const ArtWorkScreen = () => {
   const {artWorkDetails, addToFavorites, favoriteArtWorks} = useStore();
+  const {navigate} = useNavigation<any>();
 
   const buyTickets = async () => {
     await Linking.openURL(`https://sales.artic.edu/admissions`);

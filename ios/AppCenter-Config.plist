@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   AppCenter-Config.plist
+   artChicagoCatalogApp
+
+   Created by Francisco Urrea on 12/01/2024.
+   Copyright (c) 2024 ___ORGANIZATIONNAME___. All rights reserved.
+-->
+<plist version="1.0">
+  <dict>
+     <key>AppSecret</key>
+     <string>14cabef9-06bd-46b4-93f9-1f8be70d84fa</string>
+     </dict>
+</plist>
